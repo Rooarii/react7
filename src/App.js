@@ -8,23 +8,31 @@ const url = 'https://thesimpsonsquoteapi.glitch.me/quotes?count=5'
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {  };
+    this.state = { quotes: [] };
     this.getQuotes = this.getQuotes.bind(this);
   }
+
   // call the getQuotes method at first client render
   componentDidMount(){
     this.getQuotes();
   }
+/*   getQuotes method make the Ajax request. 
+  when the Ajax request is received, it displays the data response in console & set the state  quotes */
   getQuotes(){
     // AJAX request
     axios.get(url)
       // check Ajax request answer in console
-      .then(response => console.log("datas from API: ",response.data))
+      .then(response => {
+        console.log("datas from API: ",response.data)
+        this.setState({quotes: response.data})
+      })
   }
+
+
   render() {
     return (
-      // <DisplayQuote quotes={this.getQuotes}/>
       <>
+        <DisplayQuote quotes={this.state.quotes}/>
       </>
     );
   }
