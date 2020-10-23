@@ -3,7 +3,7 @@ import DisplayQuote from './components/DisplayQuote';
 import axios from 'axios';
 
 // API entry point
-const url = 'https://thesimpsonsquoteapi.glitch.me/quotes?count=5'
+const url = 'https://thesimpsonsquoteapi.glitch.me/quotes?count=3'
 
 class App extends Component {
   constructor(props) {
