@@ -32,6 +32,7 @@ class App extends Component {
   render() {
     return (
       <>
+        <span class="glyphicon glyphicon-refresh btn btn-info btn-lg" onClick={this.getQuotes}></span> Refresh
         <DisplayQuote quotes={this.state.quotes}/>
       </>
     );
