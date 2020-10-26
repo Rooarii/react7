@@ -8,7 +8,7 @@ const url = 'https://thesimpsonsquoteapi.glitch.me/quotes?count=3'
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { quotes: [] };
+    this.state = { quotes: null };
     this.getQuotes = this.getQuotes.bind(this);
   }
 
@@ -33,7 +33,12 @@ class App extends Component {
     return (
       <>
         <span class="glyphicon glyphicon-refresh btn btn-info btn-lg" onClick={this.getQuotes}></span> Refresh
-        <DisplayQuote quotes={this.state.quotes}/>
+        {this.state.quotes ? (
+          <DisplayQuote quotes={this.state.quotes}/>
+        ) : (
+          <p>loading data</p>
+        )}
+        
       </>
     );
   }
